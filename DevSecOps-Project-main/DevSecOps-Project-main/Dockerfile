@@ -6,6 +6,8 @@ RUN yarn install
 COPY . .
 ARG TMDB_V3_API_KEY
 ENV VITE_APP_TMDB_V3_API_KEY=${TMDB_V3_API_KEY}
+RUN yarn cache clean
+RUN yarn set version latest
 RUN yarn build
 
 
