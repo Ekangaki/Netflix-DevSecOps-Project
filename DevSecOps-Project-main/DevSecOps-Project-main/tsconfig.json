@@ -1,18 +1,27 @@
-"compilerOptions": {
-  "target": "ESNext",
-  "useDefineForClassFields": true,
-  "lib": ["DOM", "DOM.Iterable", "ESNext"],
-  "allowJs": false,
-  "skipLibCheck": true,
-  "esModuleInterop": true,
-  "allowSyntheticDefaultImports": true,
-  "strict": true,
-  "forceConsistentCasingInFileNames": true,
-  "module": "ESNext",
-  "moduleResolution": "Node",
-  "resolveJsonModule": true,
-  "isolatedModules": true,
-  "noEmit": true,
-  // "jsx": "react-jsx", // Remove this line if using TypeScript 4.3 or newer
-  "baseUrl": "."
-},
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    
+    // Experimental options
+    "experimentalDecorators": true,  // Enables experimental support for decorators
+    "emitDecoratorMetadata": true,   // Enables experimental support for emitting decorator metadata
+    "importsNotUsedAsValues": "preserve"  // Experimental - Keep unused imports
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
