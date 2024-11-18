@@ -54,20 +54,20 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
                        sh "docker build --build-arg TMDB_V3_API_KEY=<yourtmdbapikey> -t netflix ."
-                       sh "docker tag netflix Ekangaki/netflix:latest "
-                       sh "docker push nasi101/netflix:latest "
+                       sh "docker tag netflix ekangaki/netflix:latest "
+                       sh "docker push ekangaki/netflix:latest "
                     }
                 }
             }
         }
         stage("AIT-TRIVY"){
             steps{
-                sh "trivy image Ekangaki/netflix:latest > trivyimage.txt" 
+                sh "trivy image ekangaki/netflix:latest > trivyimage.txt" 
             }
         }
         stage('AIT-Deploy to container'){
             steps{
-                sh 'docker run -d -p 8081:80 Ekangaki/netflix:latest'
+                sh 'docker run -d -p 8081:80 ekangaki/netflix:latest'
             }
         }
         stage('Deploy to kubernets'){
